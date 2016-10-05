@@ -14,11 +14,33 @@ public class HelloWorld extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hello_world);
-        Button button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button buttonnews = (Button) findViewById(R.id.buttonnews);
+        buttonnews.setOnClickListener(new View.OnClickListener() {
+                                      public void onClick(View v) {
+                                          Context context = getApplicationContext();
+                                          CharSequence text = "Hello news!";
+                                          int duration = Toast.LENGTH_SHORT;
+
+                                          Toast toast = Toast.makeText(context, text, duration);
+                                          toast.show();
+                                      }
+                                  });
+        Button buttonradio = (Button) findViewById(R.id.buttonradio);
+        buttonradio.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Context context = getApplicationContext();
-                CharSequence text = "Hello toast!";
+                CharSequence text = "Hello radio!";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
+        });
+        Button buttontv = (Button) findViewById(R.id.buttontv);
+        buttontv.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Context context = getApplicationContext();
+                CharSequence text = "Hello tv!";
                 int duration = Toast.LENGTH_SHORT;
 
                 Toast toast = Toast.makeText(context, text, duration);
