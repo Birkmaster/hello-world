@@ -12,21 +12,6 @@
 
 
     <Button
-        android:text="NEWS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonnews"
-        style="@android:style/Widget.Button"
-        android:visibility="visible"
-        android:elevation="6dp"
-        android:layout_marginRight="44dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="190dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
         android:text="RADIO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,4 +50,19 @@
         android:layout_toEndOf="@+id/textView"
         android:layout_marginTop="50dp"
         android:id="@+id/textView2" />
+
+    <Button
+        android:text="NEWS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonnews"
+        style="@android:style/Widget.Button"
+        android:visibility="visible"
+        android:elevation="6dp"
+        android:layout_marginRight="42dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="113dp"
+        android:layout_above="@+id/buttontv"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>
