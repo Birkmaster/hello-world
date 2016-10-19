@@ -7,9 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 
-
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
-
 public class HelloWorld extends AppCompatActivity {
 
 
