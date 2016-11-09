@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-private class GetAndroidPitRssFeedTask extends AsyncTask<Void, Void, String> {
+/**public class GetAndroidPitRssFeedTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... voids) {
@@ -31,20 +31,21 @@ private class GetAndroidPitRssFeedTask extends AsyncTask<Void, Void, String> {
     protected void onPostExecute(String rssFeed) {
         mRssFeed.setText(rssFeed);
     }
-}
+}derweilen**/
 
 public class NewsActivity extends AppCompatActivity {
+    TextView tvRSS;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_news, container, false);
-        mRssFeed = (TextView) rootView.findViewById(R.id.activity_news_rss);
-        return rootView;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_news);
+
+        tvRSS = (TextView) findViewById(R.id.RssFeed);
+        loadRSS();
     }
-    @Override
-    public void onStart() {
-        super.onStart();
+
+    public void loadRSS() {
         InputStream in = null;
         try {
             URL url = new URL("http://rss.orf.at/news.xml");
@@ -57,7 +58,7 @@ public class NewsActivity extends AppCompatActivity {
             }
             byte[] response = out.toByteArray();
             String rssFeed = new String(response, "UTF-8");
-            mRssFeed.setText(rssFeed);
+            tvRSS.setText(rssFeed);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

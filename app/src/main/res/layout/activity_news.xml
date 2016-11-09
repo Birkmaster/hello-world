@@ -4,6 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/activity_news_rss"
-    tools:context="org.example.helloworld.NewsActivity">
+    tools:context="org.example.helloworld.NewsActivity"
+    android:orientation="vertical">
 
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/RssFeed" />
 </LinearLayout>
