@@ -15,6 +15,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.xmlpull.v1.XmlPullParserException;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -41,14 +43,14 @@ import java.net.URL;
 }derweilen**/
 
 public class NewsActivity extends AppCompatActivity {
-    TextView tvRSS;
+    TextView newsRSS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
 
-        tvRSS = (TextView) findViewById(R.id.RssFeed);
+        newsRSS = (TextView) findViewById(R.id.RssFeed);
         loadRSS();
     }
 
@@ -66,12 +68,20 @@ public class NewsActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         // Display the first 500 characters of the response string.
-                        tvRSS.setText(response.substring(1125,3000));
+                        newsRSS.setText(response.substring(1125,3000));
+                        OrfNewsRssParser rssParser = new OrfNewsRssParser();
+                        try {
+                            rssParser.parse(response);
+                        } catch (XmlPullParserException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                tvRSS.setText("That didn't work!");
+                newsRSS.setText("That didn't work!");
             }
         });
 // Add the request to the RequestQueue.
